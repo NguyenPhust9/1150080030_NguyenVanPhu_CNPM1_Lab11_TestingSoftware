@@ -1,0 +1,20 @@
+# Maven build folder
+
+target/
+
+# IntelliJ IDEA files
+
+.idea/
+*.iml
+
+# Test screenshots
+
+screenshots/
+
+# Environment variables
+
+.env
+
+# Log files
+
+*.log
