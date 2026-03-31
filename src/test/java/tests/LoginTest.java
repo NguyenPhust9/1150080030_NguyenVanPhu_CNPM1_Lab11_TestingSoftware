@@ -4,6 +4,7 @@ import utils.ConfigReader;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LoginTest {
@@ -14,7 +15,13 @@ public class LoginTest {
         String password = ConfigReader.getPassword();
 
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        
+        WebDriver driver = new ChromeDriver(options);
         driver.get("https://www.saucedemo.com");
         System.out.println("Username: " + username);
         System.out.println("Password: " + password);
